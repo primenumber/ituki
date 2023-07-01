@@ -127,7 +127,8 @@ local.properties
 *.app
 *.i*86
 *.x86_64
-*.hex
+# use for test data
+# *.hex
 
 # Debug files
 *.dSYM/
