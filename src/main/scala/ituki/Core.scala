@@ -64,7 +64,7 @@ class Core extends Module {
   printf(p"rs2_data   : 0x${Hexadecimal(rs2_data)}\n")
   printf(p"wb_data    : 0x${Hexadecimal(wb_data)}\n")
   printf(p"dmem.addr  : ${io.dmem.addr}\n")
-  printf(p"wen        : ${io.dmem.wen}\n")
-  printf(p"wdata      : 0x${Hexadecimal(io.dmem.wdata)}\n")
+  printf(p"dmem.wen   : ${io.dmem.wen}\n")
+  printf(p"dmem.wdata : 0x${Hexadecimal(io.dmem.wdata)}\n")
   printf("--------\n")
 }
