@@ -7,7 +7,7 @@ import chiseltest._
 
 class RiscvTest extends AnyFreeSpec with ChiselScalatestTester {
   "ituki should work through hex" in {
-    test(new Top) { c =>
+    test(new Top("test/hex/rv32ui-p-add.hex")) { c =>
       while (!c.io.exit.peek().litToBoolean) {
         c.clock.step(1)
       }
