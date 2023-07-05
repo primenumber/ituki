@@ -5,7 +5,7 @@ import chisel3.util._
 import common.Consts._
 import common.Instructions._
 
-class Core extends Module {
+class Core(exit_pc: Option[UInt]) extends Module {
   val io = IO(new Bundle {
     val imem = Flipped(new ImemPortIo())
     val dmem = Flipped(new DmemPortIo())
@@ -172,7 +172,12 @@ class Core extends Module {
   }
 
   // exit
-  io.exit := (pc_reg === 0x44.U(WORD_LEN.W))
+  exit_pc match {
+    case Some(p) =>
+      io.exit := (pc_reg === p)
+    case None =>
+      io.exit := (inst === UNIMP)
+  }
   io.gp := regfile(3)
 
   printf(p"pc_reg     : 0x${Hexadecimal(pc_reg)}\n")

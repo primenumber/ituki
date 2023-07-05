@@ -4,6 +4,7 @@ import chisel3._
 
 import org.scalatest.flatspec.AnyFlatSpec
 import chiseltest._
+import common.Consts._
 
 class RiscvTest extends AnyFlatSpec with ChiselScalatestTester {
   behavior of "ituki"
@@ -43,7 +44,7 @@ class RiscvTest extends AnyFlatSpec with ChiselScalatestTester {
   )
   it should "work through hex" in {
     testData.foreach { f =>
-      test(new Top(f)) { c =>
+      test(new Top(f, Some(0x44.U(WORD_LEN.W)))) { c =>
         while (!c.io.exit.peek().litToBoolean) {
           c.clock.step(1)
         }

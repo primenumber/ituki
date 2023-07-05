@@ -11,6 +11,8 @@ object Consts {
   val REG_ADDR_BITS = 5
   val REG_COUNT = 32
 
+  val UNIMP = "x_c0001073".U(WORD_LEN.W)
+
   val EXE_FUN_LEN = 5
   val ALU_X       =  0.U(EXE_FUN_LEN.W)
   val ALU_ADD     =  1.U(EXE_FUN_LEN.W)
